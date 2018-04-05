@@ -1,0 +1,33 @@
+LIBRARY ieee;
+use ieee.std_logic_1164.all;
+ENTITY erg1 IS 
+	PORT(x1,x2,x3,X4,X5	:IN std_logic;
+			f					:OUT std_logic);
+END erg1;
+
+ENTITY NOT1 IS 
+PORT(x1:IN std_logic;
+		y1: OUT std_logic);
+END NOT1;
+
+ARCHITECTURE Narch OF NOT1 IS
+BEGIN
+y1<= NOT x1;
+END Narch;
+
+ENTITY AND1 IS
+PORT(x,y		:IN STD_logic;
+		retr 	:OUT STD_logic);
+END AND1;
+
+ARCHITECTURE AND1arch OF AND1 IS 
+BEGIN 
+retr <= x and y;
+END AND1arch;
+
+
+ARCHITECTURE my_arch OF erg1 IS 
+
+	singnal ;
+END my_arch;
+	

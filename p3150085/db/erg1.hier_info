@@ -1,0 +1,111 @@
+|erg1
+x1 => NOT1:stage2.x1
+x1 => AND33:stage7.x1
+x1 => AND33:stage11.x1
+x2 => NOT1:stage4.x1
+x2 => AND33:stage6.x2
+x2 => AND33:stage7.x2
+x2 => AND33:stage8.x2
+x2 => AND23:stage9.x3
+x3 => NOT1:stage3.x1
+x3 => AND23:stage5.x3
+x3 => AND33:stage6.x3
+x3 => AND33:stage8.x3
+X4 => NOT1:stage0.x1
+X4 => AND23:stage9.Nx4
+X5 => NOT1:stage1.x1
+X5 => AND33:stage7.x4
+X5 => AND33:stage8.x4
+X5 => AND23:stage9.Nx5
+X5 => AND33:stage11.x4
+f <= OR13:stage12.f
+
+
+|erg1|NOT1:stage0
+x1 => y1.DATAIN
+y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|NOT1:stage1
+x1 => y1.DATAIN
+y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|NOT1:stage2
+x1 => y1.DATAIN
+y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|NOT1:stage3
+x1 => y1.DATAIN
+y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|NOT1:stage4
+x1 => y1.DATAIN
+y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND23:stage5
+x3 => retr.IN0
+Nx4 => retr.IN1
+Nx5 => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND33:stage6
+x => retr.IN0
+y => retr.IN1
+z => retr.IN1
+k => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND33:stage7
+x => retr.IN0
+y => retr.IN1
+z => retr.IN1
+k => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND33:stage8
+x => retr.IN0
+y => retr.IN1
+z => retr.IN1
+k => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND23:stage9
+x3 => retr.IN0
+Nx4 => retr.IN1
+Nx5 => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND1:stage10
+x => retr.IN0
+y => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|AND33:stage11
+x => retr.IN0
+y => retr.IN1
+z => retr.IN1
+k => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|erg1|OR13:stage12
+x => retr.IN0
+y => retr.IN1
+a => retr.IN1
+b => retr.IN1
+c => retr.IN1
+d => retr.IN1
+z => retr.IN1
+retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+
+
