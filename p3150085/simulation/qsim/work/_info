@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\vhdl\p3150085\simulation\qsim
+verg1
+Z1 IBM:J5D1`W9e8UO[9j0FHA1
+Z2 V8N<M^IM_dAV>55SSV<k4J1
+Z3 dC:\altera\13.0sp1\vhdl\p3150085\simulation\qsim
+Z4 w1523094600
+Z5 8erg1.vo
+Z6 Ferg1.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+!i10b 1
+Z9 !s100 7302<AhJeo>R9>[Sbn8:^3
+!s85 0
+Z10 !s108 1523094602.979000
+Z11 !s107 erg1.vo|
+Z12 !s90 -work|work|erg1.vo|
+!s101 -O0
+verg1_vlg_check_tst
+!i10b 1
+!s100 CT;]z0VzcLbjzW1eob6VG0
+IX571j6aXYk6mekNfPnGEW2
+V0TIFIHRhl>UTG_zE@GL]_1
+R3
+Z13 w1523094599
+Z14 8erg1.vt
+Z15 Ferg1.vt
+L0 65
+R7
+r1
+!s85 0
+31
+Z16 !s108 1523094603.058000
+Z17 !s107 erg1.vt|
+Z18 !s90 -work|work|erg1.vt|
+!s101 -O0
+R8
+verg1_vlg_sample_tst
+!i10b 1
+!s100 ;BWY:m=1U9R10XbAhnN^A1
+IOT:8Ld1bG>_QMWEo=bEfW1
+VZm8>J50Y^fz>J=Dd8=N><1
+R3
+R13
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8
+verg1_vlg_vec_tst
+!i10b 1
+!s100 XBQFdael`YngUdJ9n1Vjf2
+I]Z@R2m__TH0fe]Mob99?o0
+VRE=hIYAe_@4XcQzBVTA4d2
+R3
+R13
+R14
+R15
+L0 160
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8

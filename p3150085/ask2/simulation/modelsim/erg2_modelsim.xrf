@@ -1,0 +1,11 @@
+vendor_name = ModelSim
+source_file = 1, C:/altera/13.0sp1/vhdl/p3150085/ask2/erg2.bdf
+source_file = 1, C:/altera/13.0sp1/vhdl/p3150085/ask2/Waveform.vwf
+source_file = 1, C:/altera/13.0sp1/vhdl/p3150085/ask2/db/erg2.cbx.xml
+design_name = erg2
+instance = comp, \x3~I , x3, erg2, 1
+instance = comp, \x4~I , x4, erg2, 1
+instance = comp, \x2~I , x2, erg2, 1
+instance = comp, \x1~I , x1, erg2, 1
+instance = comp, \inst8~0 , inst8~0, erg2, 1
+instance = comp, \f~I , f, erg2, 1

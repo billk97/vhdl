@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\vhdl\p3150085\erg3\simulation\qsim
+verg3
+Z1 Inj]Rg?kJk8K9RRSN4bH0I0
+Z2 VGJJca:>7g5`g]JDhS]6H22
+Z3 dC:\altera\13.0sp1\vhdl\p3150085\erg3\simulation\qsim
+Z4 w1523287965
+Z5 8erg3.vo
+Z6 Ferg3.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 o-work work -O0
+!i10b 1
+Z9 !s100 8a]YLBJ7Aa7g]@MomLnY_2
+!s85 0
+Z10 !s108 1523287966.718000
+Z11 !s107 erg3.vo|
+Z12 !s90 -work|work|erg3.vo|
+!s101 -O0
+verg3_vlg_check_tst
+!i10b 1
+!s100 BI[LazHGoAiQ1Z_Q>kcW;2
+IEQnfhf@ke>Ii]87jd<P0@3
+VWizcm>99a5nVzeT]aPHBF3
+R3
+Z13 w1523287964
+Z14 8erg3.vt
+Z15 Ferg3.vt
+L0 61
+R7
+r1
+!s85 0
+31
+Z16 !s108 1523287966.788000
+Z17 !s107 erg3.vt|
+Z18 !s90 -work|work|erg3.vt|
+!s101 -O0
+R8
+verg3_vlg_sample_tst
+!i10b 1
+!s100 NDaK3nLS=kHo<?;T`Q2dH3
+Id::`IJ5@Hf?7aYKSWRkT[1
+V0gHUV3kQ6obXHVXUz?kY?3
+R3
+R13
+R14
+R15
+L0 29
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8
+verg3_vlg_vec_tst
+!i10b 1
+!s100 [_E@m<eEfROl9B?l>9bR=3
+Ia:mCG[^7MJB@0nB_GW1kX1
+VmJ6S546f[907ZLKhWcH1F0
+R3
+R13
+R14
+R15
+L0 156
+R7
+r1
+!s85 0
+31
+R16
+R17
+R18
+!s101 -O0
+R8

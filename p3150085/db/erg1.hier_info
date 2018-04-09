@@ -1,111 +1,111 @@
 |erg1
-x1 => NOT1:stage2.x1
-x1 => AND33:stage7.x1
-x1 => AND33:stage11.x1
-x2 => NOT1:stage4.x1
+x1 => NOT1:stage2.x4
+x1 => AND33:stage7.Nx1
+x1 => AND33:stage11.Nx1
+x2 => NOT1:stage4.x4
 x2 => AND33:stage6.x2
 x2 => AND33:stage7.x2
 x2 => AND33:stage8.x2
 x2 => AND23:stage9.x3
-x3 => NOT1:stage3.x1
+x3 => NOT1:stage3.x4
 x3 => AND23:stage5.x3
 x3 => AND33:stage6.x3
 x3 => AND33:stage8.x3
-X4 => NOT1:stage0.x1
+X4 => NOT1:stage0.x4
 X4 => AND23:stage9.Nx4
-X5 => NOT1:stage1.x1
-X5 => AND33:stage7.x4
-X5 => AND33:stage8.x4
+X5 => NOT1:stage1.x4
+X5 => AND33:stage7.Nx5
+X5 => AND33:stage8.Nx5
 X5 => AND23:stage9.Nx5
-X5 => AND33:stage11.x4
+X5 => AND33:stage11.Nx5
 f <= OR13:stage12.f
 
 
 |erg1|NOT1:stage0
-x1 => y1.DATAIN
-y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+x4 => Nx4.DATAIN
+Nx4 <= x4.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|NOT1:stage1
-x1 => y1.DATAIN
-y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+x4 => Nx4.DATAIN
+Nx4 <= x4.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|NOT1:stage2
-x1 => y1.DATAIN
-y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+x4 => Nx4.DATAIN
+Nx4 <= x4.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|NOT1:stage3
-x1 => y1.DATAIN
-y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+x4 => Nx4.DATAIN
+Nx4 <= x4.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|NOT1:stage4
-x1 => y1.DATAIN
-y1 <= x1.DB_MAX_OUTPUT_PORT_TYPE
+x4 => Nx4.DATAIN
+Nx4 <= x4.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND23:stage5
-x3 => retr.IN0
-Nx4 => retr.IN1
-Nx5 => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+x3 => C0.IN0
+Nx4 => C0.IN1
+Nx5 => C0.IN1
+C0 <= C0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND33:stage6
-x => retr.IN0
-y => retr.IN1
-z => retr.IN1
-k => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+Nx1 => C1.IN0
+x2 => C1.IN1
+x3 => C1.IN1
+Nx5 => C1.IN1
+C1 <= C1.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND33:stage7
-x => retr.IN0
-y => retr.IN1
-z => retr.IN1
-k => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+Nx1 => C1.IN0
+x2 => C1.IN1
+x3 => C1.IN1
+Nx5 => C1.IN1
+C1 <= C1.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND33:stage8
-x => retr.IN0
-y => retr.IN1
-z => retr.IN1
-k => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+Nx1 => C1.IN0
+x2 => C1.IN1
+x3 => C1.IN1
+Nx5 => C1.IN1
+C1 <= C1.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND23:stage9
-x3 => retr.IN0
-Nx4 => retr.IN1
-Nx5 => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+x3 => C0.IN0
+Nx4 => C0.IN1
+Nx5 => C0.IN1
+C0 <= C0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND1:stage10
-x => retr.IN0
-y => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+Nx3 => C5.IN0
+Nx5 => C5.IN1
+C5 <= C5.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|AND33:stage11
-x => retr.IN0
-y => retr.IN1
-z => retr.IN1
-k => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+Nx1 => C1.IN0
+x2 => C1.IN1
+x3 => C1.IN1
+Nx5 => C1.IN1
+C1 <= C1.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |erg1|OR13:stage12
-x => retr.IN0
-y => retr.IN1
-a => retr.IN1
-b => retr.IN1
-c => retr.IN1
-d => retr.IN1
-z => retr.IN1
-retr <= retr.DB_MAX_OUTPUT_PORT_TYPE
+C0 => F.IN0
+C1 => F.IN1
+C2 => F.IN1
+C3 => F.IN1
+C4 => F.IN1
+C5 => F.IN1
+C6 => F.IN1
+F <= F.DB_MAX_OUTPUT_PORT_TYPE
 
 
