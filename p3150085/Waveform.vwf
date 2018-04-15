@@ -162,7 +162,12 @@ TRANSITION_LIST("X5")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 160.0;
+		NODE
+		{
+			REPEAT = 16;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
+		}
 	}
 }
 

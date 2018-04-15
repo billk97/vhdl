@@ -1,5 +1,5 @@
 Analysis & Synthesis report for erg1
-Sat Apr 07 12:46:04 2018
+Sun Apr 15 23:40:03 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -41,7 +41,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Apr 07 12:46:04 2018           ;
+; Analysis & Synthesis Status        ; Successful - Sun Apr 15 23:40:03 2018           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; erg1                                            ;
 ; Top-level Entity Name              ; erg1                                            ;
@@ -186,21 +186,21 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;       ;
 ; I/O pins                                    ; 6     ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; x3    ;
+; Maximum fan-out node                        ; x2    ;
 ; Maximum fan-out                             ; 2     ;
 ; Total fan-out                               ; 9     ;
 ; Average fan-out                             ; 1.13  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |erg1                      ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |erg1               ; work         ;
-;    |OR13:stage12|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |erg1|OR13:stage12  ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                          ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
+; |erg1                      ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |erg1                ; work         ;
+;    |AND310:stage15|        ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |erg1|AND310:stage15 ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -234,29 +234,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Apr 07 12:46:02 2018
+    Info: Processing started: Sun Apr 15 23:40:01 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off erg1 -c erg1
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 12 design units, including 6 entities, in source file erg1.vhd
     Info (12022): Found design unit 1: erg1-my_arch
     Info (12022): Found design unit 2: NOT1-Narch
-    Info (12022): Found design unit 3: AND1-AND1arch
-    Info (12022): Found design unit 4: AND23-AND1arch
-    Info (12022): Found design unit 5: AND33-AND1arch
-    Info (12022): Found design unit 6: OR13-OR1arch
+    Info (12022): Found design unit 3: AND310-AND1arch
+    Info (12022): Found design unit 4: OR13-OR1arch
+    Info (12022): Found design unit 5: OR14-OR1arch
+    Info (12022): Found design unit 6: OR123-OR1arch
     Info (12023): Found entity 1: erg1
     Info (12023): Found entity 2: NOT1
-    Info (12023): Found entity 3: AND1
-    Info (12023): Found entity 4: AND23
-    Info (12023): Found entity 5: AND33
-    Info (12023): Found entity 6: OR13
+    Info (12023): Found entity 3: AND310
+    Info (12023): Found entity 4: OR13
+    Info (12023): Found entity 5: OR14
+    Info (12023): Found entity 6: OR123
 Info (12021): Found 0 design units, including 0 entities, in source file vhdl1.vhd
 Info (12127): Elaborating entity "erg1" for the top level hierarchy
 Info (12128): Elaborating entity "NOT1" for hierarchy "NOT1:stage0"
-Info (12128): Elaborating entity "AND23" for hierarchy "AND23:stage5"
-Info (12128): Elaborating entity "AND33" for hierarchy "AND33:stage6"
-Info (12128): Elaborating entity "AND1" for hierarchy "AND1:stage10"
-Info (12128): Elaborating entity "OR13" for hierarchy "OR13:stage12"
+Info (12128): Elaborating entity "OR14" for hierarchy "OR14:stage5"
+Info (12128): Elaborating entity "OR123" for hierarchy "OR123:stage9"
+Info (12128): Elaborating entity "OR13" for hierarchy "OR13:stage14"
+Info (12128): Elaborating entity "AND310" for hierarchy "AND310:stage15"
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Info (21057): Implemented 8 device resources after synthesis - the final resource count might be different
@@ -264,9 +264,9 @@ Info (21057): Implemented 8 device resources after synthesis - the final resourc
     Info (21059): Implemented 1 output pins
     Info (21061): Implemented 2 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 536 megabytes
-    Info: Processing ended: Sat Apr 07 12:46:04 2018
+    Info: Peak virtual memory: 535 megabytes
+    Info: Processing ended: Sun Apr 15 23:40:03 2018
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
