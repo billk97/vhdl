@@ -1,0 +1,10 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+	ENTITY AORB IS 
+		PORT(MuxA,MuxB : IN STD_logic;
+				A_OR_B : OUT STD_logic);
+	END AORB;
+	ARCHITECTURE ARCH_AORB OF AORB IS
+		BEGIN
+			A_OR_B <= MuxA AND MuxB;
+		END ARCH_AORB;

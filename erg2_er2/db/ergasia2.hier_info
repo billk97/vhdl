@@ -1,0 +1,1503 @@
+|ergasia2
+A[0] => Alu:stage1.A
+A[1] => Alu:stage2.A
+A[2] => Alu:stage3.A
+A[3] => Alu:stage4.A
+A[4] => Alu:stage5.A
+A[5] => Alu:stage6.A
+A[6] => Alu:stage7.A
+A[7] => Alu:stage8.A
+A[8] => Alu:stage9.A
+A[9] => Alu:stage10.A
+A[10] => Alu:stage11.A
+A[11] => Alu:stage12.A
+A[12] => Alu:stage13.A
+A[13] => Alu:stage14.A
+A[14] => Alu:stage15.A
+A[15] => Alu:stage16.A
+B[0] => Alu:stage1.B
+B[1] => Alu:stage2.B
+B[2] => Alu:stage3.B
+B[3] => Alu:stage4.B
+B[4] => Alu:stage5.B
+B[5] => Alu:stage6.B
+B[6] => Alu:stage7.B
+B[7] => Alu:stage8.B
+B[7] => Alu:stage9.B
+B[8] => ~NO_FANOUT~
+B[9] => Alu:stage10.B
+B[10] => Alu:stage11.B
+B[11] => Alu:stage12.B
+B[12] => Alu:stage13.B
+B[13] => Alu:stage14.B
+B[14] => Alu:stage15.B
+B[15] => Alu:stage16.B
+OpCode[0] => ControlCircuit:stage0.OpCode[0]
+OpCode[1] => ControlCircuit:stage0.OpCode[1]
+OpCode[2] => ControlCircuit:stage0.OpCode[2]
+Apotel <= Alu:stage1.apotel
+Apotelesma1 <= Alu:stage2.apotel
+Apotelesma2 <= Alu:stage3.apotel
+Apotelesma3 <= Alu:stage4.apotel
+Apotelesma4 <= Alu:stage5.apotel
+Apotelesma5 <= Alu:stage6.apotel
+Apotelesma6 <= Alu:stage7.apotel
+Apotelesma7 <= Alu:stage8.apotel
+Apotelesma8 <= Alu:stage9.apotel
+Apotelesma9 <= Alu:stage10.apotel
+Apotelesma10 <= Alu:stage11.apotel
+Apotelesma11 <= Alu:stage12.apotel
+Apotelesma12 <= Alu:stage13.apotel
+Apotelesma13 <= Alu:stage14.apotel
+Apotelesma14 <= Alu:stage15.apotel
+Apotelesma15 <= Alu:stage16.apotel
+CarryOutTEL <= Alu:stage16.CarryOut
+
+
+|ergasia2|ControlCircuit:stage0
+OpCode[0] => Mux0.IN10
+OpCode[0] => Mux1.IN10
+OpCode[0] => Mux2.IN10
+OpCode[0] => Mux3.IN10
+OpCode[0] => Mux4.IN10
+OpCode[1] => Mux0.IN9
+OpCode[1] => Mux1.IN9
+OpCode[1] => Mux2.IN9
+OpCode[1] => Mux3.IN9
+OpCode[1] => Mux4.IN9
+OpCode[2] => Mux0.IN8
+OpCode[2] => Mux1.IN8
+OpCode[2] => Mux2.IN8
+OpCode[2] => Mux3.IN8
+OpCode[2] => Mux4.IN8
+Ainvert <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+Binvert <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+CarryIn <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+Operation[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+Operation[1] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage1|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage1|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage2|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage2|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage3|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage3|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage4|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage4|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage5|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage5|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage6|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage6|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage7|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage7|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage8|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage8|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage9|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage9|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage10|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage10|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage11|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage11|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage12|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage12|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage13|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage13|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage14|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage14|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage15|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage15|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16
+A => NOT1:stage0.A
+A => mux2to1:stage2.A
+B => NOT1:stage1.A
+B => mux2to1:stage3.A
+Ainvert => mux2to1:stage2.AInvert
+Binvert => mux2to1:stage3.AInvert
+CarryIn => Fa:stage4.CarryIn
+Operation[0] => mux4to1:stage8.Operation[0]
+Operation[1] => mux4to1:stage8.Operation[1]
+CarryOut <= Fa:stage4.CarryOut
+apotel <= mux4to1:stage8.apotel
+
+
+|ergasia2|Alu:stage16|NOT1:stage0
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|NOT1:stage1
+A => NA.DATAIN
+NA <= A.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|mux2to1:stage2
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|mux2to1:stage3
+A => MuxA~0.DATAB
+NA => MuxA~0.DATAA
+AInvert => MuxA~0.OUTPUTSELECT
+MuxA <= MuxA~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|Fa:stage4
+MuxA => Sum~0.IN0
+MuxA => Sum~8.IN0
+MuxA => CarryOut~0.IN0
+MuxA => Sum~2.IN0
+MuxA => Sum~5.IN0
+MuxB => Sum~2.IN1
+MuxB => Sum~8.IN1
+MuxB => CarryOut~2.IN0
+MuxB => Sum~0.IN1
+MuxB => Sum~5.IN1
+CarryIn => Sum~6.IN1
+CarryIn => Sum~9.IN1
+CarryIn => CarryOut~0.IN1
+CarryIn => CarryOut~2.IN1
+CarryIn => Sum~1.IN1
+CarryIn => Sum~3.IN1
+Sum <= Sum~10.DB_MAX_OUTPUT_PORT_TYPE
+CarryOut <= CarryOut~3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|AANDB:stage5
+MuxA => A_AND_B~0.IN0
+MuxB => A_AND_B~0.IN1
+A_AND_B <= A_AND_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|AORB:stage6
+MuxA => A_OR_B~0.IN0
+MuxB => A_OR_B~0.IN1
+A_OR_B <= A_OR_B~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|AXORB:stage7
+MuxA => A_XOR_B~0.IN0
+MuxA => A_XOR_B~1.IN0
+MuxB => A_XOR_B~1.IN1
+MuxB => A_XOR_B~0.IN1
+A_XOR_B <= A_XOR_B~2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ergasia2|Alu:stage16|mux4to1:stage8
+A_AND_B => Mux0.IN0
+A_OR_B => Mux0.IN1
+A_XOR_B => Mux0.IN2
+Sum => Mux0.IN3
+Operation[0] => Mux0.IN5
+Operation[1] => Mux0.IN4
+apotel <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

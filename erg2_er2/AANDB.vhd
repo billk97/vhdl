@@ -1,0 +1,10 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+	ENTITY AANDB IS 
+		PORT(MuxA,MuxB : IN STD_logic;
+				A_AND_B : OUT STD_logic);
+	END AANDB;
+	ARCHITECTURE ARCH_AANDB OF AANDB IS
+		BEGIN
+			A_AND_B <= MuxA AND MuxB ;
+		END ARCH_AANDB;

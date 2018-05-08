@@ -1,0 +1,11 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+	ENTITY Fa IS 
+		PORT(A,B,CarryIn : IN STD_logic;
+				Sum,CarryOut : OUT STD_logic);
+	END Fa;
+	ARCHITECTURE ArchFa OF Fa IS
+		BEGIN
+			Sum <= (A AND (NOT B)AND (NOT CarryIn))OR ((NOT A) AND  B AND (NOT CarryIn)) OR ((NOT A) AND (NOT B) AND CarryIn) OR(A AND  B AND CarryIn);
+			CarryOut <= (A and B) OR (A and CarryIn)OR(B and CarryIn); 
+		END ArchFa;

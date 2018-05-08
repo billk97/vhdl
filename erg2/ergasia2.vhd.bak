@@ -1,0 +1,23 @@
+LIBRARY ieee ;
+USE ieee.std_logic_1164.all ;
+	ENTITY ERG2 IS
+		PORT ( A,B,Ainvert,Binvert,CarryIn,Operation : IN STD_LOGIC ;
+			CarryOut,Result : OUT STD_LOGIC ) ;
+	END ERG2 ;
+	ARCHITECTURE ArchERG2 OF ERG2 IS
+		SIGNAL NA,MuxA:STD_LOGIC;
+		
+		COMPONENT NOT1
+			Port(A :IN	std_LOGIC;
+				NA :Out std_LOGIC);
+		END COMPONENT;
+			
+		COMPONENT mux2to1
+			Port(A,NA , AInvert	:IN	std_LOGIC;
+				MuxA :Out std_LOGIC);
+		END COMPONENT;	
+	BEGIN	
+		stage0 :NOT1 PORT MAP (A,NA);
+		stage1 :mux2to1 PORT MAP (A,NA,AInvert,MuxA);
+			
+	END ArchERG2 ;
