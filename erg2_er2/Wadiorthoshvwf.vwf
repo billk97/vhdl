@@ -1,3 +1,4 @@
+/* Simulator = Quartus II Simulator */
 /*
 WARNING: Do NOT edit the input and output ports in this file in a text
 editor if you plan to continue editing the block that represents it in
@@ -26,7 +27,7 @@ HEADER
 	TIME_UNIT = ns;
 	DATA_OFFSET = 0.0;
 	DATA_DURATION = 160.0;
-	SIMULATION_TIME = 160.0;
+	SIMULATION_TIME = 0.0;
 	GRID_PHASE = 0.0;
 	GRID_PERIOD = 10.0;
 	GRID_DUTY_CYCLE = 50;
@@ -731,9 +732,7 @@ TRANSITION_LIST("Apotel")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -742,13 +741,7 @@ TRANSITION_LIST("Apotelesma1")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 80.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -757,11 +750,7 @@ TRANSITION_LIST("Apotelesma2")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -770,13 +759,7 @@ TRANSITION_LIST("Apotelesma3")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 80.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -785,13 +768,7 @@ TRANSITION_LIST("Apotelesma4")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 80.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -800,11 +777,7 @@ TRANSITION_LIST("Apotelesma5")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -813,11 +786,7 @@ TRANSITION_LIST("Apotelesma6")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 60.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -826,13 +795,7 @@ TRANSITION_LIST("Apotelesma7")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 40.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -841,9 +804,7 @@ TRANSITION_LIST("Apotelesma8")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -852,13 +813,7 @@ TRANSITION_LIST("Apotelesma9")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 80.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -867,11 +822,7 @@ TRANSITION_LIST("Apotelesma10")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -880,13 +831,7 @@ TRANSITION_LIST("Apotelesma11")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 80.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -895,13 +840,7 @@ TRANSITION_LIST("Apotelesma12")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 20.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 80.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -910,11 +849,7 @@ TRANSITION_LIST("Apotelesma13")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -923,11 +858,7 @@ TRANSITION_LIST("Apotelesma14")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 60.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -936,13 +867,7 @@ TRANSITION_LIST("Apotelesma15")
 	NODE
 	{
 		REPEAT = 1;
-		NODE
-		{
-			REPEAT = 2;
-			LEVEL 0 FOR 40.0;
-			LEVEL 1 FOR 20.0;
-		}
-		LEVEL 0 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 
@@ -1095,9 +1020,7 @@ TRANSITION_LIST("CarryOutTEL")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 100.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 40.0;
+		LEVEL X FOR 160.0;
 	}
 }
 

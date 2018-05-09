@@ -20,5 +20,5 @@ USE ieee.std_logic_1164.all;
 		
 		
 		BEGIN
-			A_OR_B <= MuxA AND MuxB;
+			A_OR_B <= MuxA OR MuxB;
 		END ARCH_AORB;

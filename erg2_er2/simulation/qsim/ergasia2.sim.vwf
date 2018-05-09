@@ -742,8 +742,12 @@ TRANSITION_LIST("Apotelesma1")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
 		LEVEL 0 FOR 80.0;
 	}
 }
@@ -766,8 +770,12 @@ TRANSITION_LIST("Apotelesma3")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
 		LEVEL 0 FOR 80.0;
 	}
 }
@@ -777,8 +785,12 @@ TRANSITION_LIST("Apotelesma4")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
 		LEVEL 0 FOR 80.0;
 	}
 }
@@ -801,7 +813,9 @@ TRANSITION_LIST("Apotelesma6")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 40.0;
 		LEVEL 0 FOR 60.0;
 	}
@@ -827,9 +841,9 @@ TRANSITION_LIST("Apotelesma8")
 	NODE
 	{
 		REPEAT = 1;
+		LEVEL 1 FOR 60.0;
 		LEVEL 0 FOR 60.0;
 		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 60.0;
 	}
 }
 
@@ -838,9 +852,13 @@ TRANSITION_LIST("Apotelesma9")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 60.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
+		LEVEL 0 FOR 80.0;
 	}
 }
 
@@ -850,7 +868,9 @@ TRANSITION_LIST("Apotelesma10")
 	{
 		REPEAT = 1;
 		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 40.0;
 	}
 }
@@ -860,8 +880,12 @@ TRANSITION_LIST("Apotelesma11")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
 		LEVEL 0 FOR 80.0;
 	}
 }
@@ -871,8 +895,12 @@ TRANSITION_LIST("Apotelesma12")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
+		NODE
+		{
+			REPEAT = 2;
+			LEVEL 0 FOR 20.0;
+			LEVEL 1 FOR 20.0;
+		}
 		LEVEL 0 FOR 80.0;
 	}
 }
@@ -895,7 +923,9 @@ TRANSITION_LIST("Apotelesma14")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 40.0;
 		LEVEL 0 FOR 60.0;
 	}

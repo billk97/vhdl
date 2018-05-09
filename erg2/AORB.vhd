@@ -6,5 +6,5 @@ USE ieee.std_logic_1164.all;
 	END AORB;
 	ARCHITECTURE ARCH_AORB OF AORB IS
 		BEGIN
-			A_OR_B <= MuxA AND MuxB;
+			A_OR_B <= MuxA OR MuxB;
 		END ARCH_AORB;

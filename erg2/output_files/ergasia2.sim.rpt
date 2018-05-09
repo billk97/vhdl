@@ -1,5 +1,5 @@
 Simulator report for ergasia2
-Sat May 05 23:50:49 2018
+Thu May 10 00:18:43 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -44,10 +44,10 @@ applicable agreement for further details.
 ; Type                        ; Value        ;
 +-----------------------------+--------------+
 ; Simulation Start Time       ; 0 ps         ;
-; Simulation End Time         ; 160.0 ns     ;
+; Simulation End Time         ; 640.0 ns     ;
 ; Simulation Netlist Size     ; 52 nodes     ;
-; Simulation Coverage         ;      61.54 % ;
-; Total Number of Transitions ; 456          ;
+; Simulation Coverage         ;      94.23 % ;
+; Total Number of Transitions ; 2367         ;
 ; Simulation Breakpoints      ; 0            ;
 ; Family                      ; Cyclone II   ;
 +-----------------------------+--------------+
@@ -94,13 +94,13 @@ Please use Quartus II 64-Bit to view the waveform report data.
 +-----------------------------------------------------+--------------+
 ; Type                                                ; Value        ;
 +-----------------------------------------------------+--------------+
-; Total coverage as a percentage                      ;      61.54 % ;
+; Total coverage as a percentage                      ;      94.23 % ;
 ; Total nodes checked                                 ; 52           ;
 ; Total output ports checked                          ; 52           ;
-; Total output ports with complete 1/0-value coverage ; 32           ;
-; Total output ports with no 1/0-value coverage       ; 19           ;
-; Total output ports with no 1-value coverage         ; 19           ;
-; Total output ports with no 0-value coverage         ; 20           ;
+; Total output ports with complete 1/0-value coverage ; 49           ;
+; Total output ports with no 1/0-value coverage       ; 0            ;
+; Total output ports with no 1-value coverage         ; 2            ;
+; Total output ports with no 0-value coverage         ; 1            ;
 +-----------------------------------------------------+--------------+
 
 
@@ -110,10 +110,12 @@ The following table displays output ports that toggle between 1 and 0 during sim
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
 ; Node Name                                                                     ; Output Port Name                                                              ; Output Port Type ;
 +-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
+; |ergasia2|A                                                                   ; |ergasia2|A                                                                   ; out              ;
 ; |ergasia2|B                                                                   ; |ergasia2|B                                                                   ; out              ;
 ; |ergasia2|Ainvert                                                             ; |ergasia2|Ainvert                                                             ; out              ;
 ; |ergasia2|Binvert                                                             ; |ergasia2|Binvert                                                             ; out              ;
 ; |ergasia2|CarryIn                                                             ; |ergasia2|CarryIn                                                             ; out              ;
+; |ergasia2|Operation[0]                                                        ; |ergasia2|Operation[0]                                                        ; out              ;
 ; |ergasia2|CarryOut                                                            ; |ergasia2|CarryOut                                                            ; pin_out          ;
 ; |ergasia2|apotel                                                              ; |ergasia2|apotel                                                              ; pin_out          ;
 ; |ergasia2|AXORB:stage7|A_XOR_B~0                                              ; |ergasia2|AXORB:stage7|A_XOR_B~0                                              ; out0             ;
@@ -139,6 +141,21 @@ The following table displays output ports that toggle between 1 and 0 during sim
 ; |ergasia2|mux2to1:stage3|MuxA                                                 ; |ergasia2|mux2to1:stage3|MuxA                                                 ; out              ;
 ; |ergasia2|mux2to1:stage2|MuxA                                                 ; |ergasia2|mux2to1:stage2|MuxA                                                 ; out              ;
 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~0              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~0              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~2              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~2              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~3              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~3              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~4              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~4              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~5              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~5              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~6              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~6              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~7              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~7              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~8              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~8              ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~0 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~0 ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~10             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~10             ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~11             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~11             ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~12             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~12             ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~13             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~13             ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~14             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~14             ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~15             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~15             ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~16             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~16             ; out0             ;
 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~17             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~17             ; out0             ;
 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~1 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~1 ; out0             ;
 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]   ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]   ; out0             ;
@@ -146,60 +163,24 @@ The following table displays output ports that toggle between 1 and 0 during sim
 
 
 The following table displays output ports that do not toggle to 1 during simulation.
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Missing 1-Value Coverage                                                                                                                                                         ;
-+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
-; Node Name                                                                     ; Output Port Name                                                              ; Output Port Type ;
-+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
-; |ergasia2|Operation[0]                                                        ; |ergasia2|Operation[0]                                                        ; out              ;
-; |ergasia2|Operation[1]                                                        ; |ergasia2|Operation[1]                                                        ; out              ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~1              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~1              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~2              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~2              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~3              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~3              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~4              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~4              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~5              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~5              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~6              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~6              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~7              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~7              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~8              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~8              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~0 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~0 ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~9              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~9              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~10             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~10             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~11             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~11             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~12             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~12             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~13             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~13             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~14             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~14             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~15             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~15             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~16             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~16             ; out0             ;
-+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Missing 1-Value Coverage                                                                                                                               ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------+
+; Node Name                                                        ; Output Port Name                                                 ; Output Port Type ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------+
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~1 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~1 ; out0             ;
+; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~9 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~9 ; out0             ;
++------------------------------------------------------------------+------------------------------------------------------------------+------------------+
 
 
 The following table displays output ports that do not toggle to 0 during simulation.
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Missing 0-Value Coverage                                                                                                                                                         ;
-+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
-; Node Name                                                                     ; Output Port Name                                                              ; Output Port Type ;
-+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
-; |ergasia2|A                                                                   ; |ergasia2|A                                                                   ; out              ;
-; |ergasia2|Operation[0]                                                        ; |ergasia2|Operation[0]                                                        ; out              ;
-; |ergasia2|Operation[1]                                                        ; |ergasia2|Operation[1]                                                        ; out              ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~1              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~1              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~2              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~2              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~3              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~3              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~4              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~4              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~5              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~5              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~6              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~6              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~7              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~7              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~8              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~8              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~0 ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|result_node[0]~0 ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~9              ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~9              ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~10             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~10             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~11             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~11             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~12             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~12             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~13             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~13             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~14             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~14             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~15             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~15             ; out0             ;
-; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~16             ; |ergasia2|mux4to1:stage8|lpm_mux:Mux0|mux_umc:auto_generated|_~16             ; out0             ;
-+-------------------------------------------------------------------------------+-------------------------------------------------------------------------------+------------------+
++--------------------------------------------------------------------+
+; Missing 0-Value Coverage                                           ;
++------------------------+------------------------+------------------+
+; Node Name              ; Output Port Name       ; Output Port Type ;
++------------------------+------------------------+------------------+
+; |ergasia2|Operation[1] ; |ergasia2|Operation[1] ; out              ;
++------------------------+------------------------+------------------+
 
 
 +---------------------+
@@ -215,19 +196,19 @@ The following table displays output ports that do not toggle to 0 during simulat
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Simulator
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat May 05 23:50:49 2018
+    Info: Processing started: Thu May 10 00:18:42 2018
 Info: Command: quartus_sim --simulation_results_format=VWF ergasia2 -c ergasia2
 Info (324025): Using vector source file "C:/altera/13.0sp1/vhdl/erg2/WaveformALL.vwf"
 Info (310003): Option to preserve fewer signal transitions to reduce memory requirements is enabled
     Info (310004): Simulation has been partitioned into sub-simulations according to the maximum transition count determined by the engine. Transitions from memory will be flushed out to disk at the end of each sub-simulation to reduce memory requirements.
 Info (310002): Simulation partitioned into 1 sub-simulations
-Info (328053): Simulation coverage is      61.54 %
-Info (328052): Number of transitions in simulation is 456
+Info (328053): Simulation coverage is      94.23 %
+Info (328052): Number of transitions in simulation is 2367
 Info (324045): Vector file ergasia2.sim.vwf is saved in VWF text format. You can compress it into CVWF format in order to reduce file size. For more details please refer to the Quartus II Help.
 Info: Quartus II 64-Bit Simulator was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 362 megabytes
-    Info: Processing ended: Sat May 05 23:50:49 2018
-    Info: Elapsed time: 00:00:00
+    Info: Processing ended: Thu May 10 00:18:43 2018
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 
 

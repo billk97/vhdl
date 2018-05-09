@@ -35,7 +35,7 @@ USE ieee.std_logic_1164.all ;
 		stage6 :Alu PORT MAP(A(5),B(5), Ainvert,Binvert,COUT4,Operation(1 DOWNTO 0),COUT5,Apotelesma5) ;
 		stage7 :Alu PORT MAP(A(6),B(6), Ainvert,Binvert,COUT5,Operation(1 DOWNTO 0),COUT6,Apotelesma6) ;
 		stage8 :Alu PORT MAP(A(7),B(7), Ainvert,Binvert,COUT6,Operation(1 DOWNTO 0),COUT7,Apotelesma7) ;
-		stage9 :Alu PORT MAP(A(8),B(7), Ainvert,Binvert,COUT7,Operation(1 DOWNTO 0),COUT8,Apotelesma8) ;
+		stage9 :Alu PORT MAP(A(8),B(8), Ainvert,Binvert,COUT7,Operation(1 DOWNTO 0),COUT8,Apotelesma8) ;
 		stage10 :Alu PORT MAP(A(9),B(9), Ainvert,Binvert,COUT8,Operation(1 DOWNTO 0),COUT9,Apotelesma9) ;
 		stage11 :Alu PORT MAP(A(10),B(10), Ainvert,Binvert,COUT9,Operation(1 DOWNTO 0),COUT10,Apotelesma10) ;
 		stage12 :Alu PORT MAP(A(11),B(11), Ainvert,Binvert,COUT10,Operation(1 DOWNTO 0),COUT11,Apotelesma11) ;
